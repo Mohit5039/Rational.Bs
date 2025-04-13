@@ -14,7 +14,8 @@ function createBlogCard(blog) {
       <div class="blog-content">
         <h3 class="blog-title">${blog.title}</h3>
         <p class="blog-excerpt">${blog.subtitle || "..."}</p>
-        <button class="read-more-btn">Read More</button>
+       <button class="read-more-btn">Read More</button>
+
       </div>
       <div class="blog-footer">
         <span>by ${blog.author || "Unknown"}</span>
@@ -22,7 +23,17 @@ function createBlogCard(blog) {
       </div>
     </div>
   `;
+  const readMoreButton = card.querySelector(".read-more-btn");
+  readMoreButton.addEventListener("click", () => {
+    console.log("Read More clicked for blog:", blog.id); // Debug log
+    goToBlogPage(blog.id);
+  });
+
   return card;
+}
+
+function goToBlogPage(blogId) {
+  window.location.href = `read-blogs.html?id=${blogId}`; // Navigates to the blog page with the blog ID in the URL
 }
 
 // Helper to find container by heading
@@ -50,11 +61,17 @@ async function loadBlogs() {
 
   querySnapshot.forEach((doc) => {
     const blog = doc.data();
+     blog.id = doc.id; 
+
     console.log("Blog data:", blog);
     const card = createBlogCard(blog);
 
+    const latestCard = createBlogCard(blog);
+    const categoryCard = createBlogCard(blog);
+    
     // 1. Add to Latest Blogs section
-    latestBlogsContainer.appendChild(card.cloneNode(true));
+    latestBlogsContainer.appendChild(latestCard);
+    
 
     // 2. Add to Category section
     const category = blog.category || "Other Blogs";
@@ -65,5 +82,12 @@ async function loadBlogs() {
   });
 }
 
+
+
 // Load blogs on DOM ready
 document.addEventListener("DOMContentLoaded", loadBlogs);
+
+window.goToBlogPage = function(blogId) {
+  console.log("Redirecting to blog with ID:", blogId); // Debug log
+  window.location.href = `read-blogs.html?id=${blogId}`;
+};
