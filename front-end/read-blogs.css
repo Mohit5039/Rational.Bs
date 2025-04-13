@@ -1,0 +1,219 @@
+body {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, rgb(5, 5, 5), rgb(20, 20, 20));
+    color: rgb(255, 255, 255);
+    overflow-x: hidden;
+  }
+  
+  /* Header */
+  .write-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: transparent;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-icon {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .site-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .site-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin: 0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+  
+  .tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: rgb(180, 180, 180);
+    margin: 0;
+    font-style: italic;
+    margin-top: 4px;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-left: 12px;
+    cursor: pointer;
+    object-fit: cover;
+    transition: transform 0.25s ease, filter 0.3s ease;
+    filter: brightness(0.9);
+  }
+  
+  .profile-icon:hover {
+    transform: scale(1.08);
+    filter: brightness(1);
+  }
+  
+  /* Layout Variables */
+  :root {
+    --sidebar-width: 210px;
+    --sidebar-bg: rgba(10, 10, 10, 0.9);
+    --sidebar-padding: 1.5rem 1rem;
+  }
+
+  .mode-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+  }
+  
+  .mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* main css */
+  .blog-reading-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .cover-image-container {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cover-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .blog-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 2rem auto 1rem;
+    padding: 0 1rem;
+  }
+
+  .blog-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: inherit;
+  }
+  
+  .blog-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    color: rgba(200, 200, 200, 0.8);
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-family: 'Merriweather', serif;
+    color: #ddd;
+  }
+
+  .blog-meta {
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    text-align: right;
+    font-style: italic;
+    color: #aaa;
+    font-size: 0.95rem;
+  }
+  .blog-meta .author-name,
+  .blog-meta .date {
+    font-weight: 500;
+    color: #eee;
+  }
+/* Blog Info Section */
+/* Blog Info Section */
+.blog-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blog-info div {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.blog-info .category,
+.blog-info .keywords {
+  display: flex;
+  align-items: center;
+}
+
+.blog-info span {
+  margin-left: 5px;
+  color: #e5e5e5;
+  font-style: italic;
+}
+
+.blog-info .keywords span {
+  display: inline-block;
+  margin: 3px;
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.blog-info .keywords span:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}

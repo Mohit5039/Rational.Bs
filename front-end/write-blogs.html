@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write-Blogs</title>
+    <link rel="stylesheet" href="write-blogs.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&family=Roboto&family=Lora&family=Merriweather&family=Poppins&family=Open+Sans&family=Noto+Serif&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="page-wrapper">
+    <header class="write-header">
+        <div class="header-left">
+          <button onclick="window.location.href='write-options.html'" class="nav-icon back-btn" title="Back">
+            Back
+          </button>
+          <div class="site-info">
+            <h1 class="site-name">Rational.BS</h1>
+            <p class="tagline">Where overthinking meets opening credits</p>
+          </div>
+        </div>
+      
+        <div class="header-right">
+            <button id="mode-toggle" class="mode-toggle">Light Mode</button>
+
+          <button onclick="window.location.href='homepage.html'" class="nav-icon home-btn" title="Home">
+            Home
+          </button>
+          <img
+            src="/front-end/assests/profile-icon.png"
+            alt="Profile"
+            class="profile-icon"
+            onclick="window.location.href='profile.html'"
+            title="Your Profile"
+          />
+        </div>
+      </header>
+      <div class="content-wrapper">
+      <aside class="left-sidebar">
+        <h3>Text Style</h3>
+      
+        <!-- Font Family -->
+        <label for="fontFamily">Font:</label>
+        <select id="fontFamily">
+          <option value="Montserrat">Montserrat</option>
+          <option value="Playfair Display">Playfair Display</option>
+          <option value="Roboto">Roboto</option>
+          <option value="Lora">Lora</option>
+          <option value="Merriweather">Merriweather</option>
+          <option value="Poppins">Poppins</option>
+          <option value="Open Sans">Open Sans</option>
+          <option value="Noto Serif">Noto Serif</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Arial">Arial</option> 
+        </select>
+        
+      
+        <!-- Font Size -->
+        <label for="fontSize">Size:</label>
+        <input type="number" id="fontSize" min="12" max="72" value="16" />
+      
+        <!-- Bold / Italic / Underline -->
+        <div class="text-style-buttons">
+          <button id="boldBtn"><b>B</b></button>
+          <button id="italicBtn"><i>I</i></button>
+          <button id="underlineBtn"><u>U</u></button>
+        </div>
+      
+        <!-- Alignment -->
+        <label>Align:</label>
+        <div class="align-buttons">
+          <button id="alignLeft">L</button>
+          <button id="alignCenter">C</button>
+          <button id="alignRight">R</button>
+          <button id="alignJustify">J</button>
+        </div>
+      
+        <!-- Text Color -->
+        <label for="textColor">Text Color:</label>
+        <input type="color" id="textColor" />
+      
+        <!-- Highlight Color -->
+        <label for="highlightColor">Highlight:</label>
+        <input type="color" id="highlightColor" />
+      
+        <!-- Line Height -->
+        <label for="lineHeight">Line Height:</label>
+        <input type="number" id="lineHeight" min="1" max="3" step="0.1" value="1.5" />
+      
+        <!-- Letter Spacing -->
+        <label for="letterSpacing">Letter Spacing:</label>
+        <input type="number" id="letterSpacing" min="0" max="10" step="0.5" value="0" />
+      </aside>
+
+      <div id="writing-area-container" class="main-writing-area light-mode">
+      <!-- image upload-->
+        <div class="image-upload">
+            <label for="image-upload" class="upload-label">Upload Image</label>
+            <input type="file" id="image-upload" accept="image/*" class="image-input" />
+            <div id="image-display-container" class="image-display-container">
+              <!-- Image will appear here -->
+            </div>
+          </div>
+          
+        <!-- Title Input -->
+        <div class="title-section">
+          <input type="text" class="title-field" id="blog-title" placeholder="Title" />
+        </div>
+      
+        <!-- Subtitle Input -->
+        <div class="subtitle-section">
+          <input type="text" class="subtitle-field" id="blog-subtitle"  placeholder="Subtitle (optional)" />
+        </div>
+      
+        <!-- Blog Writing Area -->
+        <div class="blog-editor-section">
+          <textarea contenteditable="true" class="blog-writing-area" id="writing-area" placeholder="Start writing your blog..."></textarea>
+        </div>
+      </div>
+      
+    
+      <aside class="right-sidebar">
+        <div class="right-sidebar-inner">
+            <h3>Categories</h3>
+            <select id="categorySelect">
+                <option value="tech">Tech</option>
+                <option value="sports">Sports</option>
+                <option value="life">Life</option>
+                <option value="movies">Movies</option>
+                <option value="finance">Finance</option>
+                <option value="others">Others</option>
+              </select>
+
+
+              <label for="keyword-input">Keywords</label>
+              <input type="text" id="keyword-input" placeholder="Type & press Enter or Space">
+              <div id="keyword-box" class="keyword-box"></div>
+              
+      
+              <div class="publish-buttons">
+                <button id="publish-btn">Publish</button>
+                <button id="save-draft-btn">Save Draft</button>
+              </div>
+        </div>
+    </aside>
+      
+      
+
+
+
+
+
+      </div>
+      </div>
+      
+      
+      
+      <script type="module" src="/front-end/write-blogs.js"></script>
+      <script type="module" src="/back-end/writeblogsdb.js"></script>
+
+</body>
+</html>

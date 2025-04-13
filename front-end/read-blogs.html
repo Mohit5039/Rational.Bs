@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read-blogs</title>
+    <link rel="stylesheet" href="read-blogs.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&family=Roboto&family=Lora&family=Merriweather&family=Poppins&family=Open+Sans&family=Noto+Serif&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header class="write-header">
+        <div class="header-left">
+          <button onclick="goBack()" class="nav-icon back-btn" title="Back">
+            Back
+          </button>
+          <div class="site-info">
+            <h1 class="site-name">Rational.BS</h1>
+            <p class="tagline">Where overthinking meets opening credits</p>
+          </div>
+        </div>
+      
+        <div class="header-right">
+            <button id="mode-toggle" class="mode-toggle">Light Mode</button>
+
+          <button onclick="window.location.href='homepage.html'" class="nav-icon home-btn" title="Home">
+            Home
+          </button>
+          <img
+            src="/front-end/assests/profile-icon.png"
+            alt="Profile"
+            class="profile-icon"
+            onclick="window.location.href='profile.html'"
+            title="Your Profile"
+          />
+        </div>
+      </header>
+
+      <main class="blog-reading-container">
+        <div class="cover-image-container">
+          <img src="" alt="Blog Cover Image" id="coverImage" />
+        </div>
+        <section class="blog-header">
+          <h1 class="blog-title">Your Blog Title Goes Here</h1>
+          <p class="blog-subtitle">This is an optional subtitle or excerpt that adds a little context.</p>
+        </section>
+        <section class="blog-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula blandit ligula, non vestibulum nulla congue ac. Sed a sapien sapien. <!-- Placeholder content -->
+          </p>
+        </section>
+        <div class="blog-meta">
+          <p class="blog-author">By <span class="author-name">John Doe</span></p>
+          <p class="publish-date">Published on <span class="date">April 13, 2025</span></p>
+        </div>
+        
+       <!-- Blog Info Section -->
+<div class="blog-info">
+  <div class="category">
+      <strong>Category:</strong> <span id="category"></span>
+  </div>
+  <div class="keywords">
+      <strong>Keywords:</strong> <span id="keywords"></span>
+  </div>
+</div>
+
+
+      </main>
+
+      <script type="module" src="read-blogs.js"></script>
+</body>
+</html>

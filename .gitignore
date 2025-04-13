@@ -1,0 +1,6 @@
+node_modules/
+*.log
+.DS_Store
+
+front-end/login.js
+back-end/firebase.js
