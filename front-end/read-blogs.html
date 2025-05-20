@@ -87,25 +87,18 @@
 <div class="comment-section">
   <!-- Comment Box (input area) -->
   <div class="comment-input">
-      <textarea placeholder="Write a comment..." rows="3"></textarea>
-      <button class="submit-comment-btn">Post</button>
+      <!-- Added id="comment-text" -->
+      <textarea id="comment-text" placeholder="Write a comment..." rows="3"></textarea>
+      <!-- Changed class to id="submit-comment-btn" -->
+      <button id="submit-comment-btn" class="submit-comment-btn">Post</button>
   </div>
 
   <!-- Display Existing Comments -->
   <div class="existing-comments">
-      <div class="comment">
-          <p class="comment-author">User1</p>
-          <p class="comment-text">This is a great blog! I loved it!</p>
-          <p class="comment-time">Posted on: April 13, 2025</p>
-      </div>
-      <div class="comment">
-          <p class="comment-author">User2</p>
-          <p class="comment-text">I agree, very insightful!</p>
-          <p class="comment-time">Posted on: April 13, 2025</p>
-      </div>
-      <!-- More comments will go here -->
+    <div id="comment-list"></div>
   </div>
 </div>
+
 <!-- Related Blogs Section -->
 <div class="related-blogs-container">
   <h3>Related Blogs</h3>
@@ -125,7 +118,10 @@
 
       </main>
 
-      <script type="module" src="read-blogs.js"></script>
+      <script type="module" src="/front-end/read-blogs.js"></script>
       <script type="module" src="/back-end/read-blogsdb.js"></script>
+      <script type="module" src="/front-end/comment-section.js"></script>
+
+
 </body>
 </html>

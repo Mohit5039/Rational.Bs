@@ -31,7 +31,6 @@ export async function uploadBlogImage(file) {
   }
 }
 
-// Save blog post to Firestore
 export async function saveBlogPost({ title, subtitle, content, imageURL, category, keywords, uid }) {
   try {
     const blogRef = collection(db, "blogs");
@@ -39,12 +38,12 @@ export async function saveBlogPost({ title, subtitle, content, imageURL, categor
       title,
       subtitle,
       content,
-      imageUrl: imageURL,
+      imageURL, // ✅ fixed key
       category,
       keywords,
       uid: uid || null,
-  author: auth.currentUser?.displayName || auth.currentUser?.email || "Unknown",
-  createdAt: serverTimestamp(),
+      author: auth.currentUser?.displayName || auth.currentUser?.email || "Unknown",
+      createdAt: serverTimestamp(),
     });
     return true;
   } catch (error) {
@@ -52,3 +51,4 @@ export async function saveBlogPost({ title, subtitle, content, imageURL, categor
     return false;
   }
 }
+
