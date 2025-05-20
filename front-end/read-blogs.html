@@ -42,17 +42,16 @@
           <img src="" alt="Blog Cover Image" id="coverImage" />
         </div>
         <section class="blog-header">
-          <h1 class="blog-title">Your Blog Title Goes Here</h1>
-          <p class="blog-subtitle">This is an optional subtitle or excerpt that adds a little context.</p>
+          <h1 class="blog-title"> Blog Title</h1>
+          <p class="blog-subtitle">Subtitle</p>
         </section>
         <section class="blog-content">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula blandit ligula, non vestibulum nulla congue ac. Sed a sapien sapien. <!-- Placeholder content -->
           </p>
         </section>
         <div class="blog-meta">
-          <p class="blog-author">By <span class="author-name">John Doe</span></p>
-          <p class="publish-date">Published on <span class="date">April 13, 2025</span></p>
+          <p class="blog-author">By <span class="author-name"></span></p>
+          <p class="publish-date">Published on <span class="date"></span></p>
         </div>
         
        <!-- Blog Info Section -->
@@ -69,19 +68,19 @@
 <!-- Clap and Share Section -->
 <div class="clap-share-container">
   <!-- Clap Button -->
-  <button class="clap-btn" title="Clap">
-      <span class="clap-icon">👏</span> 
+  <button id="clap-btn" class="clap-btn" title="Clap">
+    <span class="clap-icon">👏</span> 
+    <span id="clap-count" class="clap-count">0</span>
   </button>
 
   <!-- Share Buttons -->
   <div class="share-btns">
-      <button class="share-btn" title="Copy Link">🔗</button>
-      <button class="share-btn" title="Share on Twitter">X</button>
-      
-
-      <!-- Add more social share buttons as needed -->
+    <button class="share-btn" title="Copy Link">🔗</button>
+    
+    <!-- Add more social share buttons as needed -->
   </div>
 </div>
+
 
 <!-- Comment Section -->
 <div class="comment-section">
@@ -121,6 +120,7 @@
       <script type="module" src="/front-end/read-blogs.js"></script>
       <script type="module" src="/back-end/read-blogsdb.js"></script>
       <script type="module" src="/front-end/comment-section.js"></script>
+      <script type="module" src="/front-end/claps.js"></script>
 
 
 </body>
