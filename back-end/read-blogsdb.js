@@ -3,15 +3,17 @@ import { db } from "/back-end/firebase.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 // Step 1: Get Blog ID from URL
-const urlParams = new URLSearchParams(window.location.search);
-const blogId = urlParams.get("id");
-console.log("Blog ID in URL:", blogId);
-
-if (!blogId) {
-  console.error("No blog ID found in URL.");
-} else {
-  fetchBlog(blogId);
+function loadBlogFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const blogId = urlParams.get("id");
+  if (blogId) {
+    fetchBlog(blogId);
+  } else {
+    console.error("No blog ID found in URL.");
+  }
 }
+
+
 
 // Step 2: Fetch blog from Firestore by ID
 async function fetchBlog(id) {
@@ -94,3 +96,5 @@ export async function fetchComments(blogId) {
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => doc.data());
 }
+
+window.addEventListener("DOMContentLoaded", loadBlogFromURL);
