@@ -16,39 +16,37 @@ console.log("✅ MyProfileDB.js loaded");
 export function initProfile(callback) {
   onAuthStateChanged(auth, async (user) => {
     console.log("👤 Auth check:", user);
-    if (user) {
-      const uid = user.uid;
-      const email = user.email;
-      const profileDoc = doc(db, "users", uid);
-      let data = {
-        email,
-        username: "",
-        bio: "",
-        photoURL: ""
-      };
+    if (!user) {
+      console.warn("⚠️ No user signed in.");
+      return callback(null);
+    }
 
-      try {
-        const snap = await getDoc(profileDoc);
+    const uid = user.uid;
+    const email = user.email;
+    const profileDoc = doc(db, "users", uid);
+    let data = { email, username: "", bio: "", photoURL: "" };
 
-        if (snap.exists()) {
-          const profile = snap.data();
-          data.username = profile.username || "";
-          data.bio = profile.bio || "";
-          data.photoURL = profile.photoURL || "";
-          console.log("📥 Profile data loaded:", data);
-        } else {
-          const randomUsername = await generateRandomUsername();
+    try {
+      const snap = await getDoc(profileDoc);
+
+      if (snap.exists()) {
+        const profile = snap.data();
+        data.username = profile.username || "";
+        data.bio = profile.bio || "";
+        data.photoURL = profile.photoURL || "";
+        console.log("📥 Profile data loaded:", data);
+      } else {
+        const randomUsername = await generateRandomUsername();
         data.username = randomUsername;
         console.log("🆕 Generated username:", randomUsername);
-        }
 
-        callback(data);
-      } catch (error) {
-        console.error("❌ Error fetching profile:", error);
-        callback(null);
+        await setDoc(profileDoc, data); // Save new user profile
+        console.log("📄 New profile created in Firestore.");
       }
-    } else {
-      console.warn("⚠️ No user signed in.");
+
+      callback(data);
+    } catch (error) {
+      console.error("❌ Error fetching profile:", error);
       callback(null);
     }
   });
@@ -57,9 +55,7 @@ export function initProfile(callback) {
 // Save or Update Profile Info
 export async function saveUserProfile({ username = "", bio = "", photoURL = "" }) {
   const user = auth.currentUser;
-  if (!user) {
-    throw new Error("User not logged in");
-  }
+  if (!user) throw new Error("User not logged in");
 
   const uid = user.uid;
   const profileRef = doc(db, "users", uid);
@@ -105,9 +101,7 @@ export async function isUsernameTaken(username) {
 // Upload Profile Picture
 export async function uploadProfilePicture(file) {
   const user = auth.currentUser;
-  if (!user) {
-    throw new Error("User not logged in");
-  }
+  if (!user) throw new Error("User not logged in");
 
   try {
     console.log("📤 Uploading image:", file.name);
@@ -118,7 +112,7 @@ export async function uploadProfilePicture(file) {
 
     console.log("✅ Image uploaded. URL:", downloadURL);
 
-    // Only update photoURL while preserving existing username and bio
+    // Update only photoURL without overwriting existing profile data
     const currentDoc = await getDoc(doc(db, "users", user.uid));
     const existingData = currentDoc.exists() ? currentDoc.data() : {};
 
@@ -139,6 +133,5 @@ export async function uploadProfilePicture(file) {
 async function generateRandomUsername() {
   const usersSnapshot = await getDocs(collection(db, "users"));
   const count = usersSnapshot.size + 1;
-  const randomUsername = "user" + count.toString().padStart(4, '0');
-  return randomUsername;
+  return "user" + count.toString().padStart(4, '0');
 }

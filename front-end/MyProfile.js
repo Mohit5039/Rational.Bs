@@ -1,6 +1,11 @@
-import { initProfile, saveUserProfile, uploadProfilePicture, isUsernameTaken } from '/back-end/MyProfiledb.js';
+import {
+  initProfile,
+  saveUserProfile,
+  uploadProfilePicture,
+  isUsernameTaken
+} from '/back-end/MyProfiledb.js';
 
-// Section Switching
+// Handle sidebar section switching
 document.querySelectorAll('.sidebar-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
@@ -14,52 +19,49 @@ document.querySelectorAll('.sidebar-btn').forEach(btn => {
   });
 });
 
-// Write button
-document.getElementById('writeBtn').addEventListener('click', () => {
-  window.location.href = 'write-options.html';
-});
-
+// Load user data on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   initProfile((data) => {
-    if (data) {
-      document.getElementById('email').value = data.email;
-      document.getElementById('username').value = data.username;
-      document.getElementById('bio').value = data.bio;
-      document.getElementById('profilePicPreview').src = data.photoURL || '/front-end/assests/default-avatar.png';
-    }
+    if (!data) return alert("User not signed in.");
+
+    document.getElementById('email').value = data.email;
+    document.getElementById('username').value = data.username;
+    document.getElementById('bio').value = data.bio;
+    document.getElementById('profilePicPreview').src = data.photoURL || '/front-end/assests/default-avatar.png';
   });
 
+  // Handle save
   document.getElementById('saveProfileBtn').addEventListener('click', async () => {
     const username = document.getElementById('username').value.trim();
     const bio = document.getElementById('bio').value.trim();
     const photoURL = document.getElementById('profilePicPreview').src;
 
-    if (!username) {
-      alert("Username can't be empty.");
-      return;
-    }
+    if (!username) return alert("Username can't be empty");
 
     const taken = await isUsernameTaken(username);
-    if (taken) {
-      alert('Username already taken!');
-      return;
-    }
+    if (taken) return alert("Username already taken");
 
     try {
       await saveUserProfile({ username, bio, photoURL });
-      alert('Profile saved successfully!');
+      alert("Profile saved!");
     } catch (err) {
-      console.error("Failed to save profile:", err);
-      alert("Something went wrong while saving profile.");
+      console.error("Save failed:", err);
+      alert("Failed to save profile.");
     }
   });
 
+  // Handle profile picture upload
   document.getElementById('profilePicInput').addEventListener('change', async (e) => {
     const file = e.target.files[0];
     if (file) {
-      const url = await uploadProfilePicture(file);
-      document.getElementById('profilePicPreview').src = url;
-      alert('Profile picture updated!');
+      try {
+        const url = await uploadProfilePicture(file);
+        document.getElementById('profilePicPreview').src = url;
+        alert("Profile picture updated!");
+      } catch (err) {
+        console.error("Upload failed:", err);
+        alert("Failed to upload picture.");
+      }
     }
   });
 });

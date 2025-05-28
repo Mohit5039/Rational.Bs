@@ -80,13 +80,26 @@
 
       
       <div id="drafts-section" class="section">Drafts content goes here...</div>
-      <div id="writings-section" class="section">Blogs/Poems/Others toggle here...</div>
+
+
+
+      <section class="your-writings-section">
+      <h2>Your Writings</h2>
+      <div class="tabs">
+      <button class="tab-btn active" data-type="blogs">Blogs</button>
+      <button class="tab-btn" data-type="poems">Poems</button>
+      <button class="tab-btn" data-type="others">Others</button>
+  </div>
+  <div id="writingsContainer" class="writings-list">....</div>
+</section>
+
       <div id="contact-section" class="section">Your social/contact info goes here...</div>
     </section>
   </div>
 
   <script   type="module" src="/front-end/MyProfile.js"></script>
    <script  type="module"  src="/back-end/MyProfiledb.js"></script>
+   <script type="module" src="/back-end/yourwritings.js"></script>
   
 
 </body>
