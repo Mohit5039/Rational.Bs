@@ -21,4 +21,4 @@ updateModeText(document.body.classList.contains('light-mode'));
 
 
 
-
+window.goBack = goBack;  

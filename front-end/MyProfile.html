@@ -15,7 +15,7 @@
   
     <div class="right-side">
       
-       <button class="nav-btn home-btn" onclick="location.href='homepage.html'">Home</button>
+       <button class="nav-btn home-btn" onclick="location.href='index.html'">Home</button>
     <button class="nav-btn back-btn" onclick="history.back()">Go Back</button>
       <button class="write-icon" id="writeBtn" title="Write your thoughts" onclick="location.href='/front-end/write-options.html'">
         <img class="pen-img" src="/front-end/assests/pen.png" alt="Pen icon - Write your thoughts" />
@@ -93,13 +93,40 @@
   <div id="writingsContainer" class="writings-list">....</div>
 </section>
 
-      <div id="contact-section" class="section">Your social/contact info goes here...</div>
-    </section>
-  </div>
+      <div id="contact-section" class="section">
+  <form id="contactForm">
+    <h3>Contact Info</h3>
+
+    <label>
+      <input type="checkbox" id="use-login-email" />
+      Use login email
+    </label>
+
+    <label>Email:
+      <input type="email" name="email" id="contact-email" placeholder="your@example.com" />
+    </label>
+
+    <label>Instagram:
+      <input type="text" name="instagram" id="contact-instagram" placeholder="@username" />
+    </label>
+
+    <label>Twitter:
+      <input type="text" name="twitter" id="contact-twitter" placeholder="@username" />
+    </label>
+
+    <label>LinkedIn:
+      <input type="text" name="linkedin" id="contact-linkedin" placeholder="linkedin.com/in/username" />
+    </label>
+
+    <button type="button" id="saveContactBtn">Save Changes</button>
+  </form>
+</div>
+
 
   <script   type="module" src="/front-end/MyProfile.js"></script>
    <script  type="module"  src="/back-end/MyProfiledb.js"></script>
    <script type="module" src="/back-end/yourwritings.js"></script>
+   <script type="module" src="/back-end/myContactdb.js"></script>
   
 
 </body>

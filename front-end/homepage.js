@@ -1,5 +1,7 @@
-import { auth } from "/back-end/firebase.js";
+import { auth, signOut } from "/back-end/firebase.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+
 
 // Tab switching
 const buttons = document.querySelectorAll('.tab-btn');
@@ -46,6 +48,34 @@ if (writeBtn) {
         });
     });
 }
+
+
+const profileLink = document.getElementById("Myprofile");
+  
+  if (profileLink) {
+    profileLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "/front-end/MyProfile.html"; // or just "MyProfile.html" if in same folder
+    });
+  }
+  
+
+
+const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      signOut(auth)
+        .then(() => {
+          console.log("User signed out");
+          // Optionally redirect after logout:
+          // window.location.href = "index.html";
+        })
+        .catch((error) => {
+          console.error("Error signing out:", error);
+        });
+    });
+  }
 
     // Auth state listener
     onAuthStateChanged(auth, (user) => {
