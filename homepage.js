@@ -40,12 +40,15 @@ document.addEventListener("DOMContentLoaded", function () {
 if (writeBtn) {
     onAuthStateChanged(auth, (user) => {
         writeBtn.addEventListener("click", () => {
-            if (user) {
-                window.location.href = "write-options.html";
-            } else {
-                alert("Please log in to write content.");
-                window.location.href = "login.html";
-            }
+          if (user) {
+  window.location.href = "write-options.html";
+} else {
+  alert("Please log in to write content.");
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 500); // 0.5‑second delay
+}
+
         });
     });
 }
