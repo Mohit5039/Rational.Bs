@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Profile - Rational BS</title>
-  <link rel="stylesheet" href="/front-end/MyProfile.css">
+  <link rel="stylesheet" href="./MyProfile.css">
 </head>
 <body>
 <header class="top-bar">
@@ -15,10 +15,10 @@
   
     <div class="right-side">
       
-       <button class="nav-btn home-btn" onclick="location.href='index.html'">Home</button>
+       <button class="nav-btn home-btn" onclick="location.href='./index.html'">Home</button>
     <button class="nav-btn back-btn" onclick="history.back()">Go Back</button>
-      <button class="write-icon" id="writeBtn" title="Write your thoughts" onclick="location.href='/front-end/write-options.html'">
-        <img class="pen-img" src="/front-end/assests/pen.png" alt="Pen icon - Write your thoughts" />
+      <button class="write-icon" id="writeBtn" title="Write your thoughts" onclick="location.href='./write-options.html'">
+        <img class="pen-img" src="./assests/pen.png" alt="Pen icon - Write your thoughts" />
       </button>
   
   
@@ -40,7 +40,7 @@
     <div class="row top-row">
       <!-- Profile Pic -->
       <div class="profile-pic-container">
-        <img id="profilePicPreview" src="/front-end/assests/default-avatar.png" alt="Profile Picture" />
+        <img id="profilePicPreview" src="./assests/default-avatar.png" alt="Profile Picture" />
         <input type="file" id="profilePicInput" accept="image/*" hidden />
         <button class="edit-pic-btn" onclick="document.getElementById('profilePicInput').click()">Edit</button>
       </div>
@@ -123,10 +123,10 @@
 </div>
 
 
-  <script   type="module" src="/front-end/MyProfile.js"></script>
-   <script  type="module"  src="/back-end/MyProfiledb.js"></script>
-   <script type="module" src="/back-end/yourwritings.js"></script>
-   <script type="module" src="/back-end/myContactdb.js"></script>
+  <script   type="module" src="./MyProfile.js"></script>
+   <script  type="module"  src="./MyProfiledb.js"></script>
+   <script type="module" src="./yourwritings.js"></script>
+   <script type="module" src="./myContactdb.js"></script>
   
 
 </body>

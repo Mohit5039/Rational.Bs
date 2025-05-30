@@ -1,4 +1,4 @@
-import { auth } from '../back-end/firebase.js'; // Fixed import path
+import { auth } from './firebase.js'; // Fixed import path
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
-          window.location.replace("index.html");  // Fixed path to index.html
+          window.location.replace("./index.html");  // Fixed path to index.html
           signupForm.reset();
         })
         .catch(error => alert(error.message));
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       signInWithEmailAndPassword(auth, email, password)
         .then(() => {
-         window.location.replace("index.html");  // Fixed path to index.html
+         window.location.replace("./index.html");  // Fixed path to index.html
           loginForm.reset();
         })
         .catch(error => alert(error.message));

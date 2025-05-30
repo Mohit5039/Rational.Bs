@@ -1,5 +1,5 @@
 // Import Firestore from firebase.js (already initialized)
-import { db } from "./firebase.js"; // No need to initialize Firebase here
+import { db } from "/firebase.js"; // No need to initialize Firebase here
 
 import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 

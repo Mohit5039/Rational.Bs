@@ -1,5 +1,5 @@
 import { uploadBlogImage, saveBlogPost } from "/back-end/writeblogsdb.js";
-import { auth } from "/back-end/firebase.js";  // Ensure correct import for Firebase Auth
+import { auth } from "./firebase.js";  // Ensure correct import for Firebase Auth
 
 document.addEventListener("DOMContentLoaded", function () {
   // --- Keyword Tagging ---

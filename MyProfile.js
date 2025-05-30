@@ -3,7 +3,7 @@ import {
   saveUserProfile,
   uploadProfilePicture,
   isUsernameTaken
-} from '/back-end/MyProfiledb.js';
+} from './MyProfiledb.js';
 
 // Handle sidebar section switching
 document.querySelectorAll('.sidebar-btn').forEach(btn => {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('email').value = data.email;
     document.getElementById('username').value = data.username;
     document.getElementById('bio').value = data.bio;
-    document.getElementById('profilePicPreview').src = data.photoURL || '/front-end/assests/default-avatar.png';
+    document.getElementById('profilePicPreview').src = data.photoURL || './assests/default-avatar.png';
   });
 
   // Handle save

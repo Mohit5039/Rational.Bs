@@ -1,6 +1,6 @@
 // comments.js
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-import { db } from "/back-end/firebase.js";  // Your Firebase config and Firestore init here
+import { db } from "/firebase.js";  // Your Firebase config and Firestore init here
 import { collection, addDoc, query, where, getDocs, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 const auth = getAuth();

@@ -1,4 +1,4 @@
-import { db } from "/back-end/firebase.js";
+import { db } from "./firebase.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 function loadBlogFromURL() {
