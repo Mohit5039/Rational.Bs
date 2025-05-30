@@ -44,6 +44,7 @@ if (writeBtn) {
                 window.location.href = "write-options.html";
             } else {
                 alert("Please log in to write content.");
+                window.location.href = "login.html";
             }
         });
     });
