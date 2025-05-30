@@ -1,4 +1,4 @@
-import { uploadBlogImage, saveBlogPost } from "/back-end/writeblogsdb.js";
+import { uploadBlogImage, saveBlogPost } from "./writeblogsdb.js";
 import { auth } from "./firebase.js";  // Ensure correct import for Firebase Auth
 
 document.addEventListener("DOMContentLoaded", function () {

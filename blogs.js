@@ -1,7 +1,14 @@
 // Import Firestore from firebase.js (already initialized)
 import { db } from "/firebase.js"; // No need to initialize Firebase here
 
-import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 // Create blog card HTML
 function createBlogCard(blog) {
@@ -18,7 +25,7 @@ function createBlogCard(blog) {
 
       </div>
       <div class="blog-footer">
-        <span>by ${blog.author || "Unknown"}</span>
+        <span>by ${blog.username || "Unknown"}</span>
         <span class="category-badge">${blog.category}</span>
       </div>
     </div>
@@ -56,30 +63,39 @@ async function loadBlogs() {
   latestBlogsContainer.innerHTML = ""; // Clear any existing content
 
   const q = query(collection(db, "blogs"), orderBy("createdAt", "desc"));
-
   const querySnapshot = await getDocs(q);
 
-  querySnapshot.forEach((doc) => {
-    const blog = doc.data();
-     blog.id = doc.id; 
+  for (const blogDoc of querySnapshot.docs) {
+    const blog = blogDoc.data();
+    blog.id = blogDoc.id;
 
-    console.log("Blog data:", blog);
-    const card = createBlogCard(blog);
+    // 🔁 Fetch username using blog.uid
+    try {
+      const userRef = doc(db, "users", blog.uid);
+      const userSnap = await getDoc(userRef);
+      if (userSnap.exists()) {
+        blog.username = userSnap.data().username || "Unknown";
+      } else {
+        blog.username = "Unknown";
+      }
+    } catch (error) {
+      console.error("Error fetching username for blog", blog.id, error);
+      blog.username = "Unknown";
+    }
 
     const latestCard = createBlogCard(blog);
     const categoryCard = createBlogCard(blog);
-    
+
     // 1. Add to Latest Blogs section
     latestBlogsContainer.appendChild(latestCard);
-    
 
     // 2. Add to Category section
     const category = blog.category || "Other Blogs";
     const categoryContainer = getCategoryContainer(category);
     if (categoryContainer) {
-      categoryContainer.appendChild(card);
+      categoryContainer.appendChild(categoryCard);
     }
-  });
+  }
 }
 
 
