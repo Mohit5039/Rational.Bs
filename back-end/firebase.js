@@ -8,13 +8,13 @@ import { signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyDmcIuNECGnxvDy58Cqp2MFx7KArV5jS4A",
-  authDomain: "rationalbs-backend.firebaseapp.com",
-  projectId: "rationalbs-backend",
-  storageBucket: "rationalbs-backend.firebasestorage.app",
-  messagingSenderId: "129821405436",
-  appId: "1:129821405436:web:5e645796f0a380aa4aa779",
-  measurementId: "G-9L5LVEMDCJ"
+  apiKey: "AIzaSyD2rTf_-JuxVRFzjQNbVgKVGt1Xpw8N9Vk",
+  authDomain: "rationalbs.firebaseapp.com",
+  projectId: "rationalbs",
+  storageBucket: "rationalbs.firebasestorage.app",
+  messagingSenderId: "396181592463",
+  appId: "1:396181592463:web:0db136e788e0f5238e13fa",
+  measurementId: "G-3LNY2ECE4Q"
 };
 
 // Initialize Firebase
