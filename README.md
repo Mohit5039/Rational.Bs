@@ -76,4 +76,4 @@ Feel free to use, fork, or contribute.
 🙋‍♂️ Contact
 Developer: Mohit Singh
 📧 Email: mohitshekhawat2323@gmail.com
-🔗 LinkedIn: Mohit Singh
+🔗 LinkedIn: [Mohit Singh](https://www.linkedin.com/in/mohit-singh-a64848258/)
