@@ -1,0 +1,150 @@
+Full-Stack Blog Platform
+A dynamic full-stack blog platform enabling users to create, read, and interact with blog posts in real time. Built with a modern, cinematic glassmorphic design, featuring user authentication, category filtering, image uploads, dark/light mode, and real-time comments.
+
+Table of Contents
+Introduction
+
+Features
+
+Technologies Used
+
+Installation & Setup
+
+Usage
+
+Project Progress & Updates
+
+Challenges & Solutions
+
+Future Enhancements
+
+License
+
+Contact
+
+Introduction
+This project is a full-stack blog platform designed to provide a seamless and engaging environment for users to write, read, and comment on blogs. Leveraging Firebase services for backend functionality, the platform supports user authentication, image uploads, dynamic content rendering, and real-time updates. The UI focuses on minimalism and usability, with a cinematic glassmorphic aesthetic and support for dark/light modes.
+
+Features
+User Authentication: Secure login and signup via Firebase Auth.
+
+Profile Management: Fully implemented profile section where users can update username, email, bio, and profile picture.
+
+Blog Creation & Management: Write blogs with title, content, categories, and image uploads.
+
+Category Filtering: Filter blogs by major categories like tech, sports, life, movies, and others.
+
+Image Uploads: Upload and display cover images for blog posts using Firebase Storage.
+
+Dark/Light Mode: Toggle between themes with smooth transitions, applied to main content only.
+
+Real-Time Comments: Authenticated users can comment on blogs with real-time syncing via Firestore.
+
+Clap Button: Interactive clap feature limited to 3 claps per user per blog.
+
+Related Blogs Section: Shows blogs from the same category, excluding the current post.
+
+Responsive Design: Works across desktop and mobile devices with flexible layouts.
+
+Technologies Used
+Frontend:
+
+HTML
+
+CSS (Glassmorphic design with black, white, and grey palette)
+
+JavaScript (Modular scripts for comments, blog loading, and UI interaction)
+
+Backend:
+
+Firebase Authentication (User login/signup)
+
+Firebase Firestore (Realtime database for blogs, comments, claps)
+
+Firebase Storage (Image uploads)
+
+Installation & Setup
+Clone the repository
+
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/your-repo.git
+cd your-repo
+Install dependencies
+This project uses vanilla JS, HTML, and CSS with Firebase SDK included via CDN or npm depending on your setup.
+
+Firebase Setup
+
+Create a Firebase project at Firebase Console
+
+Enable Authentication (Email/Password)
+
+Create Firestore database and set security rules
+
+Set up Firebase Storage with appropriate permissions
+
+Replace your Firebase config in the project files with your own credentials
+
+Run locally
+Open index.html (or main HTML file) in a browser or use a local server for full Firebase functionality.
+
+Usage
+Visit the live site here: https://rationalbs-backend.web.app/index.html
+
+Sign up or log in to start creating and interacting with blogs.
+
+Use the profile section to update your details and upload your photo.
+
+Write new blog posts, upload images, and assign categories.
+
+Browse blogs by category, read full posts, leave comments, and clap for posts.
+
+Toggle between dark and light modes for comfortable reading.
+
+Project Progress & Updates
+Completed user authentication and fully functional profile section integrated with Firebase.
+
+Modularized JavaScript for comments, claps, blog loading, and related blog features.
+
+Implemented dark/light mode toggle scoped to main content area with smooth transitions.
+
+Created real-time comment system with Firestore syncing and user-specific clap limits.
+
+Developed related blogs feature filtering by category and fixed routing bugs.
+
+Ensured UI consistency and responsiveness with glassmorphic design.
+
+Challenges & Solutions
+Sticky Sidebar Layout: Adjusted sticky positioning offsets to avoid overlap and ensure visibility.
+
+Image Upload Handling: Used Firebase Storage with preview support for instant image display.
+
+Dark/Light Mode Toggle: Scoped theme changes to main content only, with smooth transitions.
+
+User Profile Integration: Connected Firebase Auth with Firestore to fetch and update dynamic user data.
+
+Future Enhancements
+Enhanced profile customization (bio, social media links).
+
+Drafts saving and scheduled publishing workflow.
+
+Advanced comment features: replies, likes, moderation.
+
+Personalized homepage feed based on user preferences.
+
+Instagram-like feed dedicated to poems and abstract writings for richer creative experience.
+
+Separate sections for different types of writing content (e.g., blogs, poems, stories) to better organize user contributions.
+
+Many additional small features and UI improvements as the platform evolves beyond the current MVP stage.
+
+Further mobile responsiveness and UI fine-tuning.
+
+License
+This project is licensed under the MIT License — see the LICENSE file for details.
+
+Contact
+Created by Mohit Singh
+Email: mohitshekhawat2323@gmail.com
+LinkedIn: https://www.linkedin.com/in/mohit-singh-a64848258/
